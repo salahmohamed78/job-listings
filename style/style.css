@@ -19,6 +19,10 @@
   --VeryDarkGrayishCyan: hsl(180, 14%, 20%);
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .mobileBg {
   width: 100%;
 }
@@ -147,11 +151,12 @@ hr {
 .featured {
   color: var(--LightGrayishCyan-filter);
   background-color: var(--VeryDarkGrayishCyan);
-  padding: 2px 6px;
+  padding: 4px 8px;
+
   border-radius: 15px;
 }
 
-.role {
+.position {
   font-weight: var(--bold);
 }
 
@@ -188,6 +193,7 @@ hr {
 
   .desktopBg {
     display: block;
+    width: 100%;
   }
 }
 
