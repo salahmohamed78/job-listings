@@ -10,16 +10,23 @@ root.style.setProperty("--bgHeight", `${bgHeight}px`);
 //////////////////////////////////////////
 
 */
+let data = {};
 
 //
 
-import { fetchData, Render, FilterSystem } from "./logic.js";
+import { fetchData } from "./lib/fetch.js";
+import { Item, Items } from "./lib/data-structure.js";
+import { FilterSystem } from "./lib/filter-system.js";
+import { Render } from "./lib/render.js";
+import { Create } from "./lib/data-transformation.js";
 
 const filterSystem = new FilterSystem();
 
 fetchData("../data.json").then((jobs) => {
-  Render.renderJobsToPage(jobs);
+  data = new Items(jobs, Create.createJobCard);
+  Render.renderElements(data.getElements(2), ".jobs");
 });
+
 //
 
 document.addEventListener("click", documentOnClickCallBack);
