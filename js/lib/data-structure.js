@@ -46,13 +46,8 @@ class Items {
     });
   }
 
-  getElements(requestedQuantity = "all") {
+  getElements(requestedQuantity = this._howManyToRender) {
     let elementsList = [];
-    if (typeof requestedQuantity === "string") {
-      if (requestedQuantity.toLowerCase() === "all") {
-        return this.elements;
-      }
-    }
 
     if (requestedQuantity < 1) {
       console.log(
