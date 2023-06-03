@@ -38,7 +38,11 @@ class Items {
   _list = [];
   _length;
   _renderedQuantity = 0;
-  _howManyToRender = 10;
+  _howManyToRender = 2;
+
+  get length() {
+    return this._length;
+  }
 
   get elements() {
     return this._list.map((item) => {

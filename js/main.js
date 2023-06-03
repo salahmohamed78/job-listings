@@ -25,6 +25,9 @@ const filterSystem = new FilterSystem();
 fetchData("../data.json").then((jobs) => {
   data = new Items(jobs, Create.createJobCard);
   Render.renderElements(data.getElements(), ".jobs");
+  setTimeout(() => {
+    Render.renderElements(data.getElements(data.length), ".jobs");
+  }, 0);
 });
 
 //
