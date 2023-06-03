@@ -51,6 +51,7 @@ function documentOnClickCallBack(e) {
 function addFilterTagAndFilter(tagElement) {
   const category = tagElement.getAttribute("data-category");
   const value = tagElement.getAttribute("data-value");
+  Render.showElement(".filter-wrapper");
   Render.renderTagToSelectedTagsWrapper(tagElement);
   filterSystem.add(category, value);
 
@@ -67,11 +68,16 @@ function removeFilterTagAndFilter(closeBtn) {
 
   const JobElementsList = document.querySelectorAll(".job");
   filterSystem.filterJobs(JobElementsList);
+  const tagsWrapper = document.querySelector(".filter__tags");
+
+  if (!tagsWrapper.querySelector(".filter__tag")) {
+    Render.hideElement(".filter-wrapper");
+  }
 }
 
 function clearFilter() {
-  const selectedTagsWrapper = document.querySelector(".filter__tags");
-  Render.clear(selectedTagsWrapper);
+  Render.clear(".filter__tags");
+  Render.hideElement(".filter-wrapper");
   filterSystem.reset();
   const JobElementsList = document.querySelectorAll(".job");
   filterSystem.filterJobs(JobElementsList);

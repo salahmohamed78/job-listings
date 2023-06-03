@@ -58,14 +58,23 @@ class Render {
 
   //
 
-  static hideElement(ele) {
-    ele.classList.add("hide");
+  static hideElement(input) {
+    if (typeof input === "string") {
+      document.querySelector(input).classList.add("hide");
+    } else if (input.nodeType === 1) {
+      input.classList.add("hide");
+    }
   }
-  static showElement(ele) {
-    ele.classList.remove("hide");
+  static showElement(input) {
+    if (typeof input === "string") {
+      document.querySelector(input).classList.remove("hide");
+    } else if (input.nodeType === 1) {
+      input.classList.remove("hide");
+    }
   }
 
-  static clear(ele) {
+  static clear(selector) {
+    const ele = document.querySelector(selector);
     ele.replaceChildren();
   }
 
