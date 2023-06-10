@@ -22,7 +22,7 @@ import { Create } from "./lib/data-transformation.js";
 
 const filterSystem = new FilterSystem();
 
-fetchData("../data.json").then((jobs) => {
+fetchData("https://salahmohamed78.github.io/job-listings/data.json").then((jobs) => {
   data = new Items(jobs, Create.createJobCard);
   Render.renderElements(data.getElements(), ".jobs");
   setTimeout(() => {
